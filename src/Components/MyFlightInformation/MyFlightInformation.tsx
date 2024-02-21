@@ -31,7 +31,59 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
     <div>
       <h2>My Flights Information</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="row mb-3">
+          <label
+            htmlFor="departure-destination"
+            className="col-sm-2 col-form-label"
+          >
+            Depart:
+          </label>
+          <div className="col-sm-10">
+            <input
+              type="string"
+              className="form-control"
+              id="departure-destination"
+            />
+          </div>
+        </div>
+        <div className="row mb-3">
+          <label
+            htmlFor="arrival-destination"
+            className="col-sm-2 col-form-label"
+          >
+            Arrival:
+          </label>
+          <div className="col-sm-10">
+            <input
+              type="string"
+              className="form-control"
+              id="arrival-destination"
+            />
+          </div>
+        </div>
+
+        <fieldset className="row mb-3">
+          <legend className="col-form-label col-sm-2 pt-0">Date </legend>{" "}
+        </fieldset>
+        <div className="row mb-3">
+          <div className="col-sm-10 offset-sm-2">
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="gridCheck1"
+              />
+              <label className="form-check-label" htmlFor="gridCheck1"></label>
+            </div>
+          </div>
+        </div>
+        <button type="submit">Find My Flights </button>
+      </form>
+    </div>
+  );
+};
+{
+  /* <div>
           <label>
             Name:
             <input
@@ -53,74 +105,7 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
             />
           </label>
         </div>
-        {/* Add more form fields as needed */}
-        <button type="submit">Submit</button>
-      </form>
-
-      <div
-        id="multi-product-search-form-1"
-        data-testid="multi-product-search-form"
-      >
-        <form>
-          <div className="row mb-3">
-            <label
-              htmlFor="departure-destination"
-              className="col-sm-2 col-form-label"
-            >
-              Departure
-            </label>
-            <div className="col-sm-10">
-              <input
-                type="string"
-                className="form-control"
-                id="departure-destination"
-              />
-            </div>
-          </div>
-          <div className="row mb-3">
-            <label
-              htmlFor="arrival-destination"
-              className="col-sm-2 col-form-label"
-            >
-              Arrival
-            </label>
-            <div className="col-sm-10">
-              <input
-                type="string"
-                className="form-control"
-                id="arrival-destination"
-              />
-            </div>
-          </div>
-
-          <fieldset className="row mb-3">
-            <legend className="col-form-label col-sm-2 pt-0">
-              Date of Travel
-            </legend>
-            \{" "}
-          </fieldset>
-          <div className="row mb-3">
-            <div className="col-sm-10 offset-sm-2">
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="gridCheck1"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="gridCheck1"
-                ></label>
-              </div>
-            </div>
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Find My Flights
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-};
+        Add more form fields as needed */
+}
 
 export default MyFlightInformation;
