@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 interface MyFlightInformationProps {}
 
@@ -64,6 +65,8 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
 
         <fieldset className="row mb-3">
           <legend className="col-form-label col-sm-2 pt-0">Date </legend>{" "}
+          {/* TODO: Figure out why this date picker breaks the ui */}
+          {/* <DatePicker /> */}
         </fieldset>
         <div className="row mb-3">
           <div className="col-sm-10 offset-sm-2">
