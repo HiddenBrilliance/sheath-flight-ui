@@ -1,4 +1,9 @@
 import React, { FC, useState } from "react";
+import dayjs, { Dayjs } from "dayjs";
+import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 interface MyFlightInformationProps {}
@@ -11,6 +16,9 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
     arrival: "",
     date: "",
   });
+
+  const [value, setValue] = React.useState<Dayjs | null>(dayjs("2022-04-17"));
+  console.log("Calendar Value", value);
 
   // Function to handle changes in form inputs
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,6 +75,12 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
           <legend className="col-form-label col-sm-2 pt-0">Date </legend>{" "}
           {/* TODO: Figure out why this date picker breaks the ui */}
           {/* <DatePicker /> */}
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DateCalendar
+              value={value}
+              onChange={(newValue) => setValue(newValue)}
+            />
+          </LocalizationProvider>
         </fieldset>
         <div className="row mb-3">
           <div className="col-sm-10 offset-sm-2">
