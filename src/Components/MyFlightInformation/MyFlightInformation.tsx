@@ -73,12 +73,12 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
 
         <fieldset className="row mb-3">
           <legend className="col-form-label col-sm-2 pt-0">Date </legend>{" "}
-          {/* TODO: Figure out why this date picker breaks the ui */}
-          {/* <DatePicker /> */}
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DateCalendar
               value={value}
               onChange={(newValue) => setValue(newValue)}
+              minDate={value}
+              // maxDate={}
             />
           </LocalizationProvider>
         </fieldset>
