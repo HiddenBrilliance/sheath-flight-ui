@@ -8,6 +8,13 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 interface MyFlightInformationProps {}
 
+//Figure out why maximum component is not working
+const MaximumDateComponent: React.FC = () => {
+  const [value, setValue] = useState<Date>(new Date());
+
+  const maximumDate = dayjs("2025-12-31");
+};
+
 const MyFlightInformation: FC<MyFlightInformationProps> = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -78,7 +85,8 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
               value={value}
               onChange={(newValue) => setValue(newValue)}
               minDate={value}
-              // maxDate={}
+              //figure out why it is not recognizing my variable for maximum date
+              maxDate={maximumDate}
             />
           </LocalizationProvider>
         </fieldset>
