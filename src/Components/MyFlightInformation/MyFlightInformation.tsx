@@ -8,13 +8,6 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 interface MyFlightInformationProps {}
 
-//Figure out why maximum component is not working
-const MaximumDateComponent: React.FC = () => {
-  const [value, setValue] = useState<Date>(new Date());
-
-  const maximumDate = dayjs("2025-12-31");
-};
-
 const MyFlightInformation: FC<MyFlightInformationProps> = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -23,11 +16,9 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
     arrival: "",
     date: "",
   });
+  const [value, setValue] = React.useState<Dayjs | null>(dayjs(new Date()));
+  const maximumDate = dayjs("2025-12-31");
 
-  const [value, setValue] = React.useState<Dayjs | null>(dayjs("2022-04-17"));
-  console.log("Calendar Value", value);
-
-  // Function to handle changes in form inputs
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -84,7 +75,7 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
             <DateCalendar
               value={value}
               onChange={(newValue) => setValue(newValue)}
-              minDate={value}
+              minDate={dayjs(new Date())}
               //figure out why it is not recognizing my variable for maximum date
               maxDate={maximumDate}
             />
