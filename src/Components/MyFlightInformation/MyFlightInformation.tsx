@@ -10,7 +10,7 @@ interface MyFlightInformationProps {}
 
 const MyFlightInformation: FC<MyFlightInformationProps> = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    airlineCarrier: "",
     flightNumber: "",
     departure: "",
     arrival: "",
@@ -98,30 +98,5 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
     </div>
   );
 };
-{
-  /* <div>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Flight Number:
-            <input
-              type="text"
-              name="flightNumber"
-              value={formData.flightNumber}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        Add more form fields as needed */
-}
 
 export default MyFlightInformation;
