@@ -5,6 +5,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import AirportCodesAutoComplete from "../AutoCompleteInput";
 
 interface MyFlightInformationProps {}
 
@@ -46,11 +47,12 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
             Depart:
           </label>
           <div className="col-sm-10">
-            <input
+            <AirportCodesAutoComplete></AirportCodesAutoComplete>
+            {/* <input
               type="string"
               className="form-control"
               id="departure-destination"
-            />
+            /> */}
           </div>
         </div>
         <div className="row mb-3">
@@ -61,14 +63,9 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
             Arrival:
           </label>
           <div className="col-sm-10">
-            <input
-              type="string"
-              className="form-control"
-              id="arrival-destination"
-            />
+            <AirportCodesAutoComplete></AirportCodesAutoComplete>
           </div>
         </div>
-
         <fieldset className="row mb-3">
           <legend className="col-form-label col-sm-2 pt-0">Date </legend>{" "}
           <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -81,18 +78,29 @@ const MyFlightInformation: FC<MyFlightInformationProps> = () => {
             />
           </LocalizationProvider>
         </fieldset>
-        <div className="row mb-3">
-          <div className="col-sm-10 offset-sm-2">
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="gridCheck1"
-              />
-              <label className="form-check-label" htmlFor="gridCheck1"></label>
-            </div>
+        <div className="dropdown">
+          <button
+            className="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <h3>Airline Carrier Preference</h3>{" "}
+          </button>
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a className="dropdown-item" href="#">
+              Action
+            </a>
+            <a className="dropdown-item" href="#">
+              Another action
+            </a>
+            <a className="dropdown-item" href="#">
+              Something else here
+            </a>
           </div>
-        </div>
+        </div>{" "}
         <button type="submit">Find My Flights </button>
       </form>
     </div>
